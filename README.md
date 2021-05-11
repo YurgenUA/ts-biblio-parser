@@ -1,2 +1,4 @@
-# ts-biblio-parser
-Scrapped books massive data catalog producer
+# biblio-parser
+
+index.ts with it main(...) is the entry point.
+sample-of-putut.log is the log of one day articles subset processing
