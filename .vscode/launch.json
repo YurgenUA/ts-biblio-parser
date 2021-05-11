@@ -1,0 +1,58 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // To debug, make sure a *.spec.ts file is active in the editor, then run a configuration
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Active Spec2",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
+      "runtimeArgs": [
+        "debug",
+        "--break",
+        "--serial",
+        "${file}"
+      ],
+      "port": 9229,
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ],
+      "preLaunchTask": "npm: build"
+      // "smartStep": true
+    },
+    {
+      // Use this one if you're already running `yarn watch`
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Main Spec (no build)",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
+      "runtimeArgs": [
+        "debug",
+        "--break",
+        "--serial",
+        "${workspaceFolder}/src/index.spec.ts"
+      ],
+      "port": 9229,
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
+      // "smartStep": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch index.ts",
+      "program": "${workspaceRoot}/src/index.ts",
+      "cwd": "${workspaceRoot}",
+      "console": "integratedTerminal",
+      "outFiles": [
+        "${workspaceRoot}/dist/*.js"
+      ],
+      "sourceMaps": true,
+      "preLaunchTask": "npm: build",
+      "smartStep": true
+    }
+  ]
+}
